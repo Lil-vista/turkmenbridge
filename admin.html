@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurkmenBridge - Admin Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Panel - TurkmenBridge</h1>
+        <nav>
+            <a href="index.html" id="nav-home">Baş sahypa</a>
+            <a href="tracking.html" id="nav-track">Ýük yzarlama</a>
+            <a href="admin.html" id="nav-admin" class="active">Admin</a>
+        </nav>
+    </header>
+    <main>
+        <section id="admin-section">
+            <h2>Ýük maglumatlaryny girizmek/üýtgetmek</h2>
+            <form id="cargo-form">
+                <label>Ýük ID: <input type="text" id="admin-id" required></label><br>
+                <label>Sender (Iberiji): <input type="text" id="admin-sender"></label><br>
+                <label>Destination (Barjak ýurdy): <input type="text" id="admin-destination"></label><br>
+                <label>Kg: <input type="number" id="admin-kg"></label><br>
+                <label>Görnüşi: <input type="text" id="admin-type"></label><br>
+                <label>Status:
+                    <select id="admin-status">
+                        <option value="accepted">Kabul edildi</option>
+                        <option value="sent">Ugradyldy</option>
+                        <option value="onway">Ýolda</option>
+                        <option value="arrived">Bardy</option>
+                    </select>
+                </label><br>
+                <label>Ýük suraty (URL): <input type="text" id="admin-photo"></label><br>
+                <label>Ýol puly (manat): <input type="number" id="admin-fee"></label><br>
+                <button type="submit">Ýük maglumatlaryny giriz/üýtget</button>
+            </form>
+            <div id="admin-message"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 TurkmenBridge</p>
+    </footer>
+    <script src="admin.js"></script>
+</body>
+</html>

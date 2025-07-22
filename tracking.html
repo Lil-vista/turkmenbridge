@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TurkmenBridge - Ýük yzarlama</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>TurkmenBridge</h1>
+        <nav>
+            <a href="index.html" id="nav-home">Baş sahypa</a>
+            <a href="tracking.html" id="nav-track" class="active">Ýük yzarlama</a>
+            <a href="index.html#services" id="nav-services">Hyzmatlar</a>
+            <a href="index.html#contact" id="nav-contact">Kontakt</a>
+            <span class="lang-switch">
+                <button onclick="setLang('tk')">Türkmen</button>
+                <button onclick="setLang('en')">English</button>
+                <button onclick="setLang('ru')">Русский</button>
+                <button onclick="setLang('zh')">中文</button>
+            </span>
+        </nav>
+    </header>
+    <main>
+        <section class="search-section">
+            <label id="label-search" for="track-id"></label>
+            <input type="text" id="track-id" placeholder="" />
+            <button id="btn-search"></button>
+        </section>
+        <section id="result-section" class="hidden">
+            <h2 id="result-title"></h2>
+            <div id="cargo-info"></div>
+        </section>
+        <section class="info-section">
+            <h3 id="info-title"></h3>
+            <ul>
+                <li id="info-point-1"></li>
+                <li id="info-point-2"></li>
+                <li id="info-point-3"></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 TurkmenBridge</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
