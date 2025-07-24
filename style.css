@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtual Cargo</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #0F0F1C, #1A1A2E);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .neon {
+      text-shadow: 0 0 5px #00FFF5, 0 0 10px #00FFF5, 0 0 20px #00FFF5;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center">
+  <header class="w-full text-center p-6 neon">
+    <h1 class="text-4xl font-bold">Virtual Cargo Tracker</h1>
+    <p class="text-lg mt-2 text-blue-200">Welcome to the future of shipping</p>
+  </header>
+
+  <main class="w-full max-w-3xl px-6 py-8 glass text-center">
+    <h2 class="text-2xl font-semibold mb-4">Track Your Cargo</h2>
+    <input 
+      type="text" 
+      placeholder="Enter Cargo ID" 
+      class="w-full p-3 mb-6 rounded-lg bg-gray-900 border border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+    />
+    <button 
+      class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all"
+    >
+      Track Now
+    </button>
+  </main>
+
+  <section class="w-full max-w-4xl mt-12 px-6">
+    <h3 class="text-xl mb-4 neon">Cargo Status</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="glass p-4">
+        <h4 class="font-bold text-blue-300">📦 Picked Up</h4>
+        <p>Package collected from sender</p>
+      </div>
+      <div class="glass p-4">
+        <h4 class="font-bold text-blue-300">🚛 In Transit</h4>
+        <p>On the way to destination</p>
+      </div>
+      <div class="glass p-4">
+        <h4 class="font-bold text-blue-300">🛃 Customs</h4>
+        <p>Currently at customs checkpoint</p>
+      </div>
+      <div class="glass p-4">
+        <h4 class="font-bold text-blue-300">📬 Delivered</h4>
+        <p>Package successfully delivered</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="w-full text-center mt-16 p-6 text-sm text-gray-400">
+    &copy; 2025 Virtual Cargo. All rights reserved.
+  </footer>
+</body>
+</html>
