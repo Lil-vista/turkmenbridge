@@ -1,247 +1,71 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtual Cargo</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #0F0F1C, #1A1A2E);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .neon {
+      text-shadow: 0 0 5px #00FFF5, 0 0 10px #00FFF5, 0 0 20px #00FFF5;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center">
+  <header class="w-full text-center p-6 neon">
+    <h1 class="text-4xl font-bold">Virtual Cargo Tracker</h1>
+    <p class="text-lg mt-2 text-blue-200">Welcome to the future of shipping</p>
+  </header>
 
-:root {
-  --main-gradient: linear-gradient(90deg, #13b968, #35c1ed 80%);
-  --primary-color: #13b968;
-  --secondary-color: #35c1ed;
-  --bg-light: #f7fafc;
-  --white: #fff;
-  --dark: #1a2327;
-  --gray: #6c7a89;
-  --card-shadow: 0 2px 14px rgba(53,193,237,0.16);
-  --card-border: 1px solid #ececec;
-}
+  <main class="w-full max-w-3xl px-6 py-8 glass text-center">
+    <h2 class="text-2xl font-semibold mb-4">Track Your Cargo</h2>
+    <input 
+      type="text" 
+      placeholder="Enter Cargo ID" 
+      class="w-full p-3 mb-6 rounded-lg bg-gray-900 border border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+    />
+    <button 
+      class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all"
+    >
+      Track Now
+    </button>
+  </main>
 
-body {
-  font-family: 'Montserrat', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: var(--bg-light);
-  color: var(--dark);
-}
+  <section class="w-full max-w-4xl mt-12 px-6">
+    <h3 class="text-xl mb-4 neon">Cargo Status</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="glass p-4">
+        <h4 class="font-bold text-blue-300">📦 Picked Up</h4>
+        <p>Package collected from sender</p>
+      </div>
+      <div class="glass p-4">
+        <h4 class="font-bold text-blue-300">🚛 In Transit</h4>
+        <p>On the way to destination</p>
+      </div>
+      <div class="glass p-4">
+        <h4 class="font-bold text-blue-300">🛃 Customs</h4>
+        <p>Currently at customs checkpoint</p>
+      </div>
+      <div class="glass p-4">
+        <h4 class="font-bold text-blue-300">📬 Delivered</h4>
+        <p>Package successfully delivered</p>
+      </div>
+    </div>
+  </section>
 
-header {
-  background: var(--main-gradient);
-  color: var(--white);
-  text-align: center;
-  padding: 2.2rem 1rem 1rem 1rem;
-  box-shadow: 0 2px 10px rgba(53,193,237,0.10);
-  position: relative;
-}
-
-header h1 {
-  font-size: 2.3rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  margin: 0 0 0.5rem 0;
-  text-shadow: 0 2px 4px rgba(23, 75, 81, 0.10);
-}
-
-nav {
-  margin: 1.5rem 0 0.5rem 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-}
-
-nav a {
-  color: var(--white);
-  background: rgba(0,0,0,0.03);
-  text-decoration: none;
-  padding: 7px 18px;
-  margin: 0 4px;
-  border-radius: 20px;
-  font-size: 1.05rem;
-  font-weight: 500;
-  transition: background 0.2s, color 0.2s;
-  border: 1px solid transparent;
-}
-
-nav a.active,
-nav a:hover {
-  background: var(--white);
-  color: var(--primary-color);
-  border: 1px solid #c3f3e2;
-}
-
-.lang-switch {
-  margin-left: 1.2rem;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.lang-switch button {
-  margin: 0 2px;
-  padding: 5px 12px;
-  border: none;
-  background: var(--white);
-  color: var(--primary-color);
-  border-radius: 15px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  box-shadow: 0 1px 3px rgba(53,193,237,0.10);
-  transition: background 0.2s, color 0.2s;
-}
-
-.lang-switch button.active,
-.lang-switch button:hover {
-  background: var(--secondary-color);
-  color: var(--white);
-}
-
-main {
-  max-width: 770px;
-  margin: 2.5rem auto 1.5rem auto;
-  padding: 0 1.5rem;
-}
-
-section {
-  margin-bottom: 2.2rem;
-}
-
-#about, #services, #contact, .search-section, #admin-section, .info-section, #result-section {
-  background: var(--white);
-  border-radius: 18px;
-  padding: 2rem 2rem 1.5rem 2rem;
-  margin-bottom: 1.7rem;
-  box-shadow: var(--card-shadow);
-  border: var(--card-border);
-}
-
-#about h2, #services h2, #contact h2, .search-section label, .info-section h3, #admin-section h2, #result-title {
-  font-size: 1.45rem;
-  color: var(--primary-color);
-  font-weight: 700;
-  margin-bottom: 0.7rem;
-  letter-spacing: 0.5px;
-}
-
-#about ul, #services ul, .info-section ul {
-  margin: 0.7rem 0 0 1rem;
-  padding-left: 1.5rem;
-  color: var(--gray);
-  font-size: 1.08rem;
-}
-
-#about ul li::before, #services ul li::before, .info-section ul li::before {
-  content: '🚚 ';
-  color: var(--secondary-color);
-}
-
-#about-text {
-  font-size: 1.13rem;
-  color: var(--dark);
-  margin-bottom: 0.6rem;
-}
-
-#result-section {
-  background: linear-gradient(100deg, #e8fff6, #eaf7fd 60%);
-  border: 1px solid #b5f0e1;
-  margin-top: 1.5rem;
-  padding: 1.5rem 1.5rem 1.1rem 1.5rem;
-}
-
-#cargo-info p {
-  margin: 0.4rem 0;
-  font-size: 1.09rem;
-}
-
-#cargo-info strong {
-  color: var(--primary-color);
-}
-
-#cargo-info img {
-  margin-top: 0.3rem;
-  border: 2px solid #b7e2f7;
-  border-radius: 7px;
-  max-width: 170px;
-  box-shadow: 0 2px 8px rgba(53,193,237,0.08);
-}
-
-.search-section {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  background: linear-gradient(90deg, #e7f8f3, #f5fcff 70%);
-  border: 1px solid #c3f3e2;
-  box-shadow: 0 1px 5px rgba(53,193,237,0.06);
-}
-
-.search-section input, .search-section button,
-#admin-section input, #admin-section select, #admin-section button {
-  padding: 10px 14px;
-  margin-top: 8px;
-  font-size: 1.09rem;
-  border-radius: 8px;
-  border: 1px solid #d0e9e0;
-  outline: none;
-  margin-right: 0.7rem;
-  transition: border 0.2s;
-}
-
-.search-section button, #admin-section button {
-  background: var(--primary-color);
-  color: var(--white);
-  border: none;
-  border-radius: 10px;
-  margin-top: 13px;
-  cursor: pointer;
-  font-weight: 700;
-  padding: 10px 28px;
-  box-shadow: 0 1px 3px rgba(53,193,237,0.11);
-  font-size: 1.07rem;
-  transition: background 0.2s;
-}
-
-.search-section button:hover, #admin-section button:hover {
-  background: var(--secondary-color);
-}
-
-#admin-section label {
-  display: block;
-  margin: 0.9rem 0 0.2rem 0;
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
-#admin-message {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-}
-
-.info-section {
-  background: #f3fcff;
-  border: 1px solid #b5e2f7;
-  color: var(--gray);
-  margin-top: 1.3rem;
-}
-
-footer {
-  margin-top: 2.6rem;
-  padding: 0.7rem 0 1.3rem 0;
-  text-align: center;
-  color: #6c7a89;
-  font-size: 1.01em;
-  background: none;
-}
-
-@media (max-width: 900px) {
-  main { max-width: 97vw; padding: 0 0.2rem; }
-  #about, #services, #contact, .search-section, #admin-section, .info-section, #result-section {
-    padding: 1.1rem 0.6rem 1rem 0.6rem;
-  }
-}
-
-@media (max-width: 600px) {
-  header { padding-bottom: 0.6rem; }
-  main { margin: 1.1rem 0 0.7rem 0; }
-  #about, #services, #contact, .search-section, #admin-section, .info-section, #result-section {
-    border-radius: 12px;
-    font-size: 0.98rem;
-    padding: 0.8rem 0.4rem 0.8rem 0.4rem;
-  }
-  nav { flex-direction: column; gap: 0.2rem; }
-  .lang-switch { margin-left: 0; margin-top: 0.5rem; }
-}
+  <footer class="w-full text-center mt-16 p-6 text-sm text-gray-400">
+    &copy; 2025 Virtual Cargo. All rights reserved.
+  </footer>
+</body>
+</html>
