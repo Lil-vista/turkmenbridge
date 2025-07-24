@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtual Cargo Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at top left, #22223b 40%, #10111a 100%);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .neon {
+      color: #23fff4;
+      text-shadow: 0 0 10px #23fff4, 0 0 20px #23fff4, 0 0 40px #23fff4;
+      font-weight: bold;
+    }
+    .glass {
+      background: rgba(40, 44, 52, 0.7);
+      border-radius: 1rem;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(120, 120, 150, 0.2);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+    }
+    .status-box {
+      background: rgba(44, 48, 60, 0.8);
+      border: 1px solid rgba(120, 120, 150, 0.15);
+      border-radius: 1rem;
+      padding: 1.2rem;
+      margin: 0.4rem;
+      min-width: 200px;
+      transition: box-shadow 0.2s;
+      box-shadow: 0 2px 10px rgba(25,255,255,0.04);
+    }
+    .status-box:hover {
+      box-shadow: 0 0 16px #23fff4;
+    }
+    .status-title {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 0.3em;
+    }
+    .status-picked { color: #ffdab9; }
+    .status-transit { color: #7fdfff; }
+    .status-customs { color: #aeeaff; }
+    .status-delivered { color: #b4ffe5; }
+    .input-neon {
+      background: #0a0d16;
+      border: 1px solid #23fff4;
+      color: #fff;
+      border-radius: 0.7rem;
+      padding: 0.8rem;
+      outline: none;
+      box-shadow: 0 0 6px #23fff4;
+      transition: box-shadow 0.2s;
+    }
+    .input-neon:focus {
+      box-shadow: 0 0 12px #23fff4;
+      border-color: #23fff4;
+    }
+    .btn-neon {
+      background: linear-gradient(90deg, #23fff4 0%, #2e6fff 100%);
+      color: #fff;
+      font-weight: bold;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 0.9rem 0;
+      box-shadow: 0 0 12px #23fff4;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      width: 100%;
+      margin-top: 1rem;
+      font-size: 1.05em;
+    }
+    .btn-neon:hover {
+      background: linear-gradient(90deg, #1ad6c1 0%, #2e6fff 100%);
+      box-shadow: 0 0 24px #23fff4;
+    }
+    .footer {
+      margin-top: 4rem;
+      color: #6cbcc9;
+      letter-spacing: 1px;
+      font-size: 0.95em;
+      opacity: 0.7;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center">
+
+  <div class="w-full max-w-2xl mt-6 px-6">
+    <select id="langSelect" class="input-neon w-40">
+      <option value="en">🇬🇧 English</option>
+      <option value="tk">🇹🇲 Türkmençe</option>
+      <option value="ru">🇷🇺 Русский</option>
+      <option value="zh">🇨🇳 中文</option>
+    </select>
+  </div>
+
+  <header class="w-full text-center mt-6">
+    <h1 class="text-4xl neon mb-2">Virtual Cargo Tracker</h1>
+    <p class="text-lg neon" data-lang="welcome">Welcome to the future of shipping</p>
+  </header>
+
+  <main class="w-full max-w-2xl mt-10 px-6 py-8 glass text-center">
+    <h2 class="text-2xl font-semibold mb-5" data-lang="track-title">Track Your Cargo</h2>
+    <input 
+      type="text" 
+      class="input-neon w-full mb-5" 
+      placeholder="Enter Cargo ID"
+      data-lang-placeholder="track-input"
+    />
+    <button class="btn-neon" data-lang="track-button">
+      Track Now
+    </button>
+  </main>
+
+  <section class="w-full max-w-4xl mt-12 px-6">
+    <h3 class="text-xl neon mb-4" data-lang="status-title">Cargo Status</h3>
+    <div class="flex flex-wrap gap-4">
+      <div class="status-box status-picked">
+        <div class="status-title">📦 <span style="color:#ffd700;" data-lang="status-picked">Picked Up</span></div>
+        <div data-lang="status-picked-desc">Package collected from sender</div>
+      </div>
+      <div class="status-box status-transit">
+        <div class="status-title">🚛 <span style="color:#7fdfff;" data-lang="status-transit">In Transit</span></div>
+        <div data-lang="status-transit-desc">On the way to destination</div>
+      </div>
+      <div class="status-box status-customs">
+        <div class="status-title">🛃 <span style="color:#aeeaff;" data-lang="status-customs">Customs</span></div>
+        <div data-lang="status-customs-desc">Currently at customs checkpoint</div>
+      </div>
+      <div class="status-box status-delivered">
+        <div class="status-title">📬 <span style="color:#b4ffe5;" data-lang="status-delivered">Delivered</span></div>
+        <div data-lang="status-delivered-desc">Package successfully delivered</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer w-full mt-16 p-6">
+    &copy; 2025 Virtual Cargo. All rights reserved.
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        "welcome": "Welcome to the future of shipping",
+        "track-title": "Track Your Cargo",
+        "track-input": "Enter Cargo ID",
+        "track-button": "Track Now",
+        "status-title": "Cargo Status",
+        "status-picked": "Picked Up",
+        "status-picked-desc": "Package collected from sender",
+        "status-transit": "In Transit",
+        "status-transit-desc": "On the way to destination",
+        "status-customs": "Customs",
+        "status-customs-desc": "Currently at customs checkpoint",
+        "status-delivered": "Delivered",
+        "status-delivered-desc": "Package successfully delivered"
+      },
+      tk: {
+        "welcome": "Ýük daşamagyň geljegi bilen tanyşyň",
+        "track-title": "Ýüküňizi Gözläň",
+        "track-input": "Ýük ID-ni giriziň",
+        "track-button": "Gözle",
+        "status-title": "Ýüküň ýagdaýy",
+        "status-picked": "Alynan",
+        "status-picked-desc": "Ýük ugradyjydan alyndy",
+        "status-transit": "Ýolda",
+        "status-transit-desc": "Barmaly ýere ugradylýar",
+        "status-customs": "Gümrükde",
+        "status-customs-desc": "Häzirki wagtda gümrük barlagynda",
+        "status-delivered": "Eltildi",
+        "status-delivered-desc": "Ýük üstünlikli eltip berildi"
+      },
+      ru: {
+        "welcome": "Добро пожаловать в будущее доставки",
+        "track-title": "Отслеживание груза",
+        "track-input": "Введите номер груза",
+        "track-button": "Отследить",
+        "status-title": "Статус груза",
+        "status-picked": "Получен",
+        "status-picked-desc": "Груз забран у отправителя",
+        "status-transit": "В пути",
+        "status-transit-desc": "На пути к месту назначения",
+        "status-customs": "Таможня",
+        "status-customs-desc": "На таможенной проверке",
+        "status-delivered": "Доставлен",
+        "status-delivered-desc": "Груз успешно доставлен"
+      },
+      zh: {
+        "welcome": "欢迎来到货运的未来",
+        "track-title": "追踪您的货物",
+        "track-input": "输入货运编号",
+        "track-button": "立即追踪",
+        "status-title": "货运状态",
+        "status-picked": "已取件",
+        "status-picked-desc": "包裹已从发件人处取走",
+        "status-transit": "运输中",
+        "status-transit-desc": "正在前往目的地途中",
+        "status-customs": "海关",
+        "status-customs-desc": "目前在海关检查",
+        "status-delivered": "已送达",
+        "status-delivered-desc": "包裹已成功送达"
+      }
+    };
+
+    document.getElementById("langSelect").addEventListener("change", function () {
+      const lang = this.value;
+      document.querySelectorAll("[data-lang]").forEach(el => {
+        const key = el.getAttribute("data-lang");
+        el.textContent = translations[lang][key];
+      });
+      document.querySelectorAll("[data-lang-placeholder]").forEach(el => {
+        const key = el.getAttribute("data-lang-placeholder");
+        el.placeholder = translations[lang][key];
+      });
+    });
+  </script>
+
+</body>
+</html>
