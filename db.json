@@ -1,0 +1,13 @@
+{
+    "shipments": [
+      {
+        "id": "123e4567-e89b-12d3-a456-426614174000",
+        "sender": "Hytay – Turkmenistan",
+        "receiver": "Ashgabat – Atabaýew köçesi",
+        "status": "Ýolda",
+        "weight": "25kg",
+        "estimated_arrival": "2025-07-30"
+      }
+    ]
+  }
+  
